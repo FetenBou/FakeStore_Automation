@@ -21,7 +21,7 @@ describe('add new product', () => {
                 url: PRODUCTS_ENDPOINTS.product, 
                 body: requestBody
             }).then((res) => {
-                    expect(res.status).to.eq(200);
+                    expect(res.status).to.eq(201);
                     expect (res.body.id).to.not.be.null;
                     expect (res.body.title).to.eq(requestBody.title);
                     expect (res.body.price).to.eq(requestBody.price);

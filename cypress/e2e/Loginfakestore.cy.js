@@ -1,16 +1,22 @@
 import { AUTH } from "../constants/endpoints";
 
-describe("login feature " ,() => {
 
+describe("login feature " ,() => {
+  let loginData;
+  // extract user data from fixutres 
+ beforeEach(() => {
+
+    cy.fixture("login_data").then((data) => {
+      loginData = data;
+    });
+
+  });
 //postitve case : 
  it("login request with passing credentials ", () => {
   cy.request({
   method: 'POST',
   url:  AUTH.auth,
-  body: {
-    username: 'mor_2314',
-    password: '83r5^_'
-  }
+  body: loginData.validUser
 }).then((response) => {
   expect(response.status).to.eq(201)
   expect(response.body).to.have.property('token')
@@ -23,10 +29,7 @@ it("login request with false credentials ", () => {
   cy.request({
   method: 'POST',
   url:  AUTH.auth,
-  body: {
-    username: 'xxx_2314',
-    password: '83r5^_'
-  },
+  body:loginData.invalidUser ,
   failOnStatusCode: false,
 }).then((response) => {
   expect(response.status).to.eq(401)

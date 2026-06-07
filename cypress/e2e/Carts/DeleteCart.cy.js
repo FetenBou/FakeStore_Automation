@@ -1,18 +1,18 @@
 
-import { PRODUCTS_ENDPOINTS } from "../../constants/endpoints";
+import { CARTS_ENDPOINTS, PRODUCTS_ENDPOINTS } from "../../constants/endpoints";
 
 
 
-describe('delete a product', () => {
-    context('DELETE product ', () => {
+describe('delete a cart', () => {
+    context('DELETE cart ', () => {
 
-        it('should delete a product from the database ', () => { 
+        it('should delete a cart from the database ', () => { 
            
          
 
             cy.api({
                 method: 'DELETE',
-                url: PRODUCTS_ENDPOINTS.product  +'/2', 
+                url: CARTS_ENDPOINTS.carts  +'/2', 
                 
             }).then((res) => {
                     expect(res.status).to.eq(200);

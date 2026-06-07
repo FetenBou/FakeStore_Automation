@@ -1,4 +1,4 @@
-import { AUTH } from "../constants/endpoints";
+import {AUTH } from "../../constants/endpoints";
 
 
 describe("login feature " ,() => {

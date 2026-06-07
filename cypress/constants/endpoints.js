@@ -5,3 +5,7 @@ export const PRODUCTS_ENDPOINTS = {
 export const AUTH={
    auth : '/auth/login',
 }
+
+export const CARTS_ENDPOINTS ={
+    carts : '/carts',
+}
